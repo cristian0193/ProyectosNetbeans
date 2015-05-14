@@ -75,35 +75,13 @@ public class Principal extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
-        int edadesHijos = 0;
-        int sumas = 0;
-        int total = 0;
         String mensaje = "";
         CajaCompensacion objCaja = new CajaCompensacion();
         
-        int numero = Integer.parseInt(this.txtCantidadTrabajadores.getText());
-        
-        for (int i = 1; i <= numero; i++) {
-             int codigoTrabajador = Integer.parseInt(JOptionPane.showInputDialog("Ingrese Codigo de Trabajador # " +i));
-             int cantidadHijos = Integer.parseInt(JOptionPane.showInputDialog("Ingrese Numero de Hijos del Trabajador # " +i));
-             
-           for (int j = 1; j <= cantidadHijos; j++) {
-                edadesHijos = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la Edad del Hijo # : " + j));
-                sumas+=edadesHijos;
-           }
-            System.out.println(""+sumas);
-            total = objCaja.valorPagar(sumas);
-            mensaje +="CODIGO TRABAJADOR : " + codigoTrabajador +"\n"
-                     +"NUMERO DE HIJOS : " + cantidadHijos +"\n"
-                     +"SUMA DE EDADES : " + sumas +"\n"
-                     +"TOTAL A PAGAR : " + total +"\n"
-                     +"-------------------------------------- \n";
-            sumas = 0;
-        }
+        int numero = Integer.parseInt(this.txtCantidadTrabajadores.getText());        
+        mensaje = objCaja.Mensaje(numero);        
         this.txtResutaldos.setText(mensaje);
        
-        
-        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
