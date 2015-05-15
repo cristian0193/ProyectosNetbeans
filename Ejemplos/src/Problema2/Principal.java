@@ -10,7 +10,12 @@ public class Principal extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
     }
 
-  public static String mensaje = "";
+    public static String mensaje = "";
+    public static String mensaje2 = "";
+    int valorProducto = 0;
+    double valorIva = 0;
+    double valorIvaProducto = 0;
+    Productos objFactura = new Productos();
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -57,7 +62,7 @@ public class Principal extends javax.swing.JFrame {
                 btnCalcularFacturaActionPerformed(evt);
             }
         });
-        getContentPane().add(btnCalcularFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 460, 80, 30));
+        getContentPane().add(btnCalcularFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 460, 80, 30));
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos"));
 
@@ -123,15 +128,14 @@ public class Principal extends javax.swing.JFrame {
 
     private void btnCalcularFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcularFacturaActionPerformed
 
-        
+        mensaje2 = "TOTAL A PAGAR + IVA: "+valorIva;
+        this.txtResutaldosFactura.setText(mensaje2);
 
     }//GEN-LAST:event_btnCalcularFacturaActionPerformed
 
     private void btnAgregarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarProductoActionPerformed
       
-        int valorProducto = 0;
-
-        Productos objFactura = new Productos();
+      
 
         int numero = Integer.parseInt(this.txtCodigoProducto.getText());
         int cantidad = Integer.parseInt(this.txtCantidadProducto.getText());
@@ -139,11 +143,15 @@ public class Principal extends javax.swing.JFrame {
         String seleccion=(String)cmbListaProductos.getSelectedItem();
         
         valorProducto = objFactura.TotalProducto(cantidad,producto);
-       // valorIVA = objFactura.TotalIva(valorProducto, producto);
+        valorIvaProducto = objFactura.TotalIva(valorProducto, producto);
+        valorIva += objFactura.TotalIva(valorProducto, producto);
+        System.out.println(""+valorIva);
+        
         mensaje += "CODIGO : " + numero +"\n"+
                    "PRODUCTO : " + seleccion +"\n"+
                    "CANTIDAD : " + cantidad +"\n"+
-                   "TOTAL : " + valorProducto+"\n"+
+                   "TOTAL NETO: " + valorProducto+"\n"+
+                   "IVA: " + valorIvaProducto+"\n"+
                    "----------------------------- \n";
         
         this.txtResutaldosProductos.setText(mensaje);

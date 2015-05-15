@@ -57,5 +57,31 @@ public class Productos {
          return valor;
     }
     
+//    public double TotalPagar(int total,int producto){
+//        double valor = 0;
+//        double totalPagar = 0;
+//       
+//        if (producto == 0) {
+//            JOptionPane.showMessageDialog(null, "INGRESE UN PRODUCTO");
+//        } else if (producto == 1) {//TRAPEADOR
+//            if (total < 50000) {
+//                valor = (total + (total * 0.14));
+//                totalPagar+=valor;
+//            } else {
+//                valor = (total + (total * 0.16));
+//                totalPagar+=valor;
+//            }
+//        } else {//ESCOBA
+//            if (total < 50000) {
+//                valor = (total + (total * 0.16));
+//                totalPagar+=valor;
+//            } else {
+//                valor = (total + (total * 0.16));
+//                totalPagar+=valor;
+//            }
+//        }
+//
+//         return totalPagar;
+//    }
     
 }
