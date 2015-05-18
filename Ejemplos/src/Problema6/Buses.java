@@ -10,8 +10,8 @@ public class Buses {
     private int corriente;
     private int ejecutivo;
     private int ruta;
-    private double salario;
-    private double mantenimiento;
+    private double salario = 0;
+    private double mantenimiento = 0;
 
     public int getCorriente() {
         return corriente;

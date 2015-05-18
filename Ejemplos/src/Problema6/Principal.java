@@ -7,6 +7,7 @@ public class Principal extends javax.swing.JFrame {
    
     public Principal() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     
@@ -108,12 +109,17 @@ public class Principal extends javax.swing.JFrame {
                 txtResultadoManteniminetoActionPerformed(evt);
             }
         });
-        getContentPane().add(txtResultadoMantenimineto, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 300, 170, -1));
+        getContentPane().add(txtResultadoMantenimineto, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 300, 170, 30));
 
         txtResutadoSalario.setEditable(false);
-        getContentPane().add(txtResutadoSalario, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 270, 170, 20));
+        getContentPane().add(txtResutadoSalario, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 270, 170, 30));
 
         btnCalcular.setText("CALCULAR");
+        btnCalcular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCalcularActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnCalcular, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 340, -1, 30));
 
         pack();
@@ -121,6 +127,15 @@ public class Principal extends javax.swing.JFrame {
 
     private void txtMantenimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMantenimientoActionPerformed
         
+       
+        
+    }//GEN-LAST:event_txtMantenimientoActionPerformed
+
+    private void txtResultadoManteniminetoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtResultadoManteniminetoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtResultadoManteniminetoActionPerformed
+
+    private void btnCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcularActionPerformed
         double salario = Double.parseDouble(this.txtSalario.getText());
         double mantenimient = Double.parseDouble(this.txtMantenimiento.getText());
         int opcionBus = (int)this.cmbBus.getSelectedIndex();
@@ -132,12 +147,7 @@ public class Principal extends javax.swing.JFrame {
         
         this.txtResutadoSalario.setText(""+obj.getSalario());
         this.txtResultadoMantenimineto.setText(""+obj.getMantenimiento());
-        
-    }//GEN-LAST:event_txtMantenimientoActionPerformed
-
-    private void txtResultadoManteniminetoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtResultadoManteniminetoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtResultadoManteniminetoActionPerformed
+    }//GEN-LAST:event_btnCalcularActionPerformed
 
     
     public static void main(String args[]) {
